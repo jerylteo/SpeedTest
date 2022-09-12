@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C10</title>
+    <style>
+        canvas {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="460" height="320" id="canvas"></canvas>
+    <br>
+    Image: <select class="imgSelection">
+        <option selected>image:</option>
+        <!-- value must be the image name -->
+        <option value="athena.jpg">Athena.jpg</option>
+        <option value="mona.jpg">Mona.jpg</option>
+    </select>
+    Filter: <select class="filterSelection">
+            <option selected>fiter:</option>
+            <option value="lighten">Lighten</option>
+            <option value="darken">Darken</option>
+        </select>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

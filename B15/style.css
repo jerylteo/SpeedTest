@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#start {
+    color: white;
+    background-color: #007BFF;
+}
+
+#start:hover {
+    background-color: rgb(0, 99, 206);
+}
+
+#stop {
+    color: white;
+    background-color: #DC3545;
+}
+
+#stop:hover {
+    background-color: rgb(209, 3, 24);
+}
+
+#reset {
+    background-color: #FFC107;
+}
+
+#reset:hover {
+    background-color: rgb(255, 209, 73);
+}

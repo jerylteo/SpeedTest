@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-rows: 10vh 75vh 10vh;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}
+
+header .navLinks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+
+
+.content-grid-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-gap: 5px;
+}
+
+main {
+    /* height: 70vh; */
+    display: grid;
+    grid-template-rows: 1fr 2fr 3fr;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 5px;
+}
+
+aside {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 5px;
+}
+
+footer {
+    /* height: 10vh; */
+}
+
+
+.siteTitle {
+    background-color: #FED531;
+}
+
+.postTitle {
+    background-color: lightblue;
+    grid-column: 1/-1;
+}
+
+.mainContent {
+    background-color: gainsboro;
+}
+
+.mainContentImage {
+    background-color: yellow;
+}
+
+.sideBar {
+    background-color: orange;
+}
+
+.ads {
+    background-color: darkgreen;
+}
+
+.otherStuffs {
+    background-color: blueviolet;
+}
+
+.postMeta {
+    background-color: lightgreen;
+    grid-row: 2/-1;
+}
+
+.footer {
+    background-color: #A08880;
+}
+
+.nav {
+    background-color: lightpink;
+}

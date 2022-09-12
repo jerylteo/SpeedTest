@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.digit {
+    position: relative;
+    width: 100px;
+    height: 180px;
+    margin-right: 30px;
+}
+
+.bar {
+    width: 80px;
+    border-radius: 10px;
+    height: 10px;
+    background-color: red;
+    display: inline-block;
+    position: absolute;
+}
+
+.bar1,.bar4,.bar7 {
+    left: 12px;
+}
+
+.bar2, .bar3{
+    right: 0;
+    top:5px;
+    transform-origin: right;
+    transform: rotate(-90deg);
+}
+
+.bar3 {
+    top: 50%;
+}
+
+.bar4 {
+    bottom: 0;
+}
+
+.bar5, .bar6 {
+    left: 0;
+    top:5px;
+    transform-origin: left;
+    transform: rotate(90deg);
+}
+
+.bar5 {
+    top:50%;
+}
+
+.bar7 {
+    top: 48%;
+    opacity: 0.1;
+}
+
+.colon {
+    height: 180px;
+    font-size: 100px;
+    color: red;
+    margin-right: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.buttons > * {
+    margin-right: 10px;
+}

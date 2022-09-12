@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses List</title>
+</head>
+<body>
+    <form id = "form">
+        <label for = "expense">Expense: </label>
+        <input type = "text" id = "expense"><br>
+        <label for = "cost">Cost: </label>
+        <input type = "number" id = "cost"><br>
+        <input type = "submit" value = "submit">
+        <p id = "message"></p>
+    </form>
+    <ul id = "list"></ul>
+    <script>
+        var expenseList = document.getElementById('expense');
+        var costList = document.getElementById('cost');
+        var form = document.getElementById('form');
+        let dataList = document.getElementById('list');
+        let data = [];
+        let message = document.getElementById("message");
+        expenseList.addEventListener('change', function() {
+            var expenseVal = document.getElementById("expense").value;
+            console.log(expenseVal);
+        });
+        costList.addEventListener('change', function() {
+            var costVal = document.getElementById('cost').value;
+            console.log(costVal);
+        })
+        form.addEventListener('submit', function(e) {
+            event.preventDefault();
+            var expenseVal = document.getElementById("expense").value;
+            var costVal = document.getElementById('cost').value;
+            if(!costVal || !expenseVal) {
+                message.innerHTML = "There is an error";
+                setTimeout(resetError, 3000);
+            }else {
+                message.innerHTML = "Correct";
+                setTimeout(resetError, 3000);
+                var newLi = document.createElement('li');
+                data.push({"expense":expenseVal,"cost":costVal});
+                var row = "", button = "";
+                for(i=0;i<data.length;i++){
+                    row = document.createElement("li");
+                    row.innerHTML = "Expense:" + data[i].expense + "<br> Cost: $" + data[i].cost;
+                }
+                dataList.appendChild(row);
+                // data.forEach((value)=> {
+                //     var newData = document.createTextNode(value);
+                //     newLi.appendChild(newData);
+                //     dataList.appendChild(newLi);
+                // })
+            }
+
+            function resetError() {
+                message.innerHTML = "";
+            }
+        })
+
+        
+
+
+    </script>
+</body>
+</html>

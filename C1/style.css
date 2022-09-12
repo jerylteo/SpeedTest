@@ -1,0 +1,138 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	background: #29303b;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Setting the scene! */
+.scene {
+	width: 150px;
+	height: 150px;
+	margin: 0 100px;
+}
+.cube {
+	/* 1 cube = 150px wide cos border-box */
+	position: relative;
+	transform-style: preserve-3d;
+	transform-origin: 75px 75px; /* Make it the center of the cube */
+	transition: all 0.4s ease-out;	
+}
+.cube > div {
+	display: grid;
+	grid-template-columns: repeat(3, 50px);
+	position: absolute;
+	backface-visibility: visible;
+}
+.cube > div > span {
+	border: 2px solid #fff;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+}
+
+/* Coloring */
+/* faster way to do this: multicursor the readme,
+paste here and modify */
+.front span {
+	background-color: rgb(250, 82, 82, 0.85);
+}
+.back span {
+	background-color: rgb(247, 103, 7, 0.85);
+}
+.right span {
+	background-color: rgb(18, 184, 134, 0.85);
+}
+.left span {
+	background-color: rgb(76, 110, 245, 0.85);
+}
+.top span {
+	background-color: rgb(250, 176, 5, 0.85);
+}
+.bottom span {
+	background-color: rgb(121, 80, 242, 0.85);
+}
+
+/* Position the faces */
+.cube .front {
+	transform: rotateY(0deg) translateZ(75px);
+}
+.cube .right {
+	transform: rotateY(90deg) translateZ(75px);
+}
+.cube .back {
+	transform: rotateY(180deg) translateZ(75px);
+}
+.cube .left {
+	transform: rotateY(-90deg) translateZ(75px);
+}
+.cube .top {
+	transform: rotateX(90deg) translateZ(75px);
+}
+.cube .bottom {
+	transform: rotateX(-90deg) translateZ(75px);
+}
+
+/* rotate the cubes */
+.rotateX .cube {
+	animation: rotate_x 4s ease-out 0s infinite forwards;
+}
+.rotateY .cube {
+	animation: rotate_y 4s ease-out 0s infinite forwards;
+}
+@keyframes rotate_y {
+	/* 65deg because it needs to end showing two Left-Right sides */
+	/* Can Xdeg be less? */
+	/* 0% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(425deg); }
+	25% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(335deg); }
+	50% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(245deg); }
+	75% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(155deg); }
+	100% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(65deg); } */
+	
+	/* to make the two cube's faces aligned, as per the video */
+	0% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(515deg); }
+	25% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(425deg); }
+	50% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(335deg); }
+	75% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(245deg); }
+	100% { transform: translateZ(-75px) rotateZ(180deg) rotateX(210deg) rotateY(155deg); }
+}
+
+/* rotate about the x axis */
+/* Set the transform-origin attribute too to prevent it from straying in Chrome */
+@keyframes rotate_x {
+	/* the wrong way using rotateY*/
+	/* 0% { transform: translateZ(-75px) rotateX(65deg) rotateZ(35deg) rotateY(0deg); }
+	25% { transform: translateZ(-75px) rotateX(65deg) rotateZ(35deg) rotateY(90deg); }
+	50% { transform: translateZ(-75px) rotateX(65deg) rotateZ(35deg) rotateY(180deg); }
+	75% { transform: translateZ(-75px) rotateX(65deg) rotateZ(35deg) rotateY(270deg); }
+	100% { transform: translateZ(-75px) rotateX(65deg) rotateZ(35deg) rotateY(360deg); } */
+
+	/* the correct way */
+	0% { 
+		transform-origin: 75px 75px;
+		transform: translateZ(-75px) rotateY(60deg) rotateZ(-25deg) rotateX(255deg); 
+	}
+	25% { 
+		transform-origin: 75px 75px;
+		transform: translateZ(-75px) rotateY(60deg) rotateZ(-25deg) rotateX(165deg); 
+	}
+	50% { 
+		transform-origin: 75px 75px;
+		transform: translateZ(-75px) rotateY(60deg) rotateZ(-25deg) rotateX(75deg); 
+	}
+	75% { 
+		transform-origin: 75px 75px;
+		transform: translateZ(-75px) rotateY(60deg) rotateZ(-25deg) rotateX(-15deg); 
+	}
+	100% { 
+		transform-origin: 75px 75px;
+		transform: translateZ(-75px) rotateY(60deg) rotateZ(-25deg) rotateX(-105deg); 
+	}
+}

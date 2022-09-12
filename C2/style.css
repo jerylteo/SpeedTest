@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #181A39;
+}
+
+main {
+    padding: 5px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    display: inline-block;
+    background-color: #51EFFD;
+    width: 10px;
+    height: 80px;
+    animation: .5s ease-in-out infinite alternate anim;
+    margin-right: 10px;
+}
+
+#two {
+    animation-delay: .2s;
+}
+
+#three {
+    animation-delay: .4s;
+}
+
+#four {
+    animation-delay: .6s;
+}
+
+@keyframes anim {
+    from {
+        height: 40px;
+    }
+
+    to {
+        height: 70px;
+    }
+}

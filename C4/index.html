@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C4&colon; RGB Slider (Normal)</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form>* {
+            display: block;
+            width: 100%;
+        }
+
+        #box {
+            background-color: rgb(0,0,0);
+            width: 350px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <div id="box">
+                <p>rgb(<span id="redVal">0</span>,<span id="greenVal">0</span>,<span id="blueVal">0</span>)</p>
+            </div>
+
+            <form>
+                <input class="color" type="range" name="red" id="red" min="0" max="255">
+                <input class="color" type="range" name="green" id="green" min="0" max="255">
+                <input class="color" type="range" name="blue" id="blue" min="0" max="255">
+            </form>
+        </section>
+    </main>
+    
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="C4.js"></script>
+</body>
+</html>

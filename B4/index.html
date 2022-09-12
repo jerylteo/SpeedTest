@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B4 - iOS Switch</title>
+    <style>
+        body {
+            height: 99vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        label {
+            cursor: pointer;
+            padding: 15px 50px;
+            background: linear-gradient(to right, cyan 50%, darkblue 50%);
+            background-size: 200% 100%;
+            background-position: right bottom;
+            border-radius: 30px;
+            position: relative;
+            transition: all 0.2s linear;
+        }
+
+        .dot {
+            position: absolute;
+            background-color: cyan;
+            border-radius: 50%;
+            height: 15px;
+            width: 15px;
+            top: 50%;
+            margin-top: -7.5px;
+            left: 25%;
+            margin-left: -7.5px;
+        }
+
+        input[type='checkbox'] {
+            display: none;
+        }
+
+        input[type='checkbox']:checked~label {
+            background-position: left bottom;
+        }
+
+        input[type='checkbox']:checked~label .dot {
+            background-color: darkblue;
+            left: 0%;
+            margin-left: auto;
+            right: 25%;
+            margin-right: -7.5px;
+            animation: dotAnimation 0.5s alternate;
+        }
+
+        @keyframes labelAnimation {
+            from {}
+
+            to {}
+        }
+
+        @keyframes dotAnimation {
+            0% {
+                opacity: 1;
+            }
+
+            10% {
+                opacity: 0;
+            }
+
+            80% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            90% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="checkbox" name="toggle" id="toggle">
+        <label for="toggle">
+            <div class="dot">
+
+            </div>
+        </label>
+    </div>
+</body>
+
+</html>

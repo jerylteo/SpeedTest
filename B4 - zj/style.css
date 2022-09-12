@@ -1,0 +1,121 @@
+label {
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    background-color: darkblue;
+    border-radius: 30px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+    transition: all 0.5s 0.5s;
+}
+
+.dot,
+.dot2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 14px;
+    scale: 0;
+}
+
+.dot {
+    background-color: cyan;
+    left: 20px;
+
+    animation: dotAnim .4s .5s forwards ease-out;
+    z-index: 3;
+}
+
+.dot2 {
+    background-color: darkblue;
+    left: 60px;
+
+    animation: dotAnim2 .5s forwards;
+    z-index: 2;
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox:checked~label {
+    background-color: cyan;
+}
+
+#checkbox:checked~label .dot2 {
+    animation: dotAnim2Checked .4s .5s forwards ease-out;
+    z-index: 3;
+}
+
+#checkbox:checked~label .dot {
+    animation: dotAnimChecked .5s forwards;
+    z-index: 2;
+}
+
+@keyframes dotAnim {
+    0% {
+        scale: 0;
+    }
+
+    25% {
+        scale: 1.1;
+    }
+
+    50% {
+        scale: 1.0;
+    }
+
+    75% {
+        scale: 1.1;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes dotAnim2 {
+    from {
+        scale: 1;
+    }
+
+    to {
+        scale: 10;
+    }
+}
+
+@keyframes dotAnimChecked {
+    from {
+        scale: 1;
+    }
+
+    to {
+        scale: 10;
+    }
+}
+
+
+@keyframes dotAnim2Checked {
+    0% {
+        scale: 0;
+    }
+
+    25% {
+        scale: 1.1;
+    }
+
+    50% {
+        scale: 1.0;
+    }
+
+    75% {
+        scale: 1.1;
+    }
+
+    100% {
+        scale: 1;
+    }
+}

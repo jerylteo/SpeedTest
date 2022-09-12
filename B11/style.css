@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.track {
+    background-image: url(racetrack.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    /* These values were taken from the graphic where I made the race track */
+    width: 800px;
+    height: 600px;
+}
+
+.car {
+    offset-path:
+        path("M183,21c0,0-158,35-161,184s161,176,161,176s130,11,217-176S604,27,604,27s172,37,172,188S620,386,620,386 s-174-86-230-192S304, 37, 183, 21z");
+    animation: move 3s infinite linear;
+    width: 40px;
+    height: 40px;
+    background-image: url(racecar.png);
+    background-size: contain;
+}
+
+@keyframes move {
+    from {
+        offset-distance: 0%;
+    }
+
+    to {
+        offset-distance: 100%;
+
+    }
+}

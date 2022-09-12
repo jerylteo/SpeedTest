@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B10 - border Radius & Box Shadow</title>
+    <style>
+        body {
+            height: 99vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: cyan;
+            width: 400px;
+            height: 300px;
+            /* border: 1px solid rgba(0, 0, 0, 0.4); */
+            display: flex;
+
+            align-items: flex-end;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+        }
+        .settings {
+            padding: 1rem;
+        }
+        .formgroup {
+            display: flex;
+        }
+        .formgroup label {
+            width: 150px;
+        }
+        .print {
+            margin: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="settings">
+            <div class="formgroup">
+                <label for="bRadius">Border Radius: </label>
+                <input type="range" min="0" max="100" id="bRadius">
+            </div>
+            <h4>Box Shadow</h4>
+            <div class="formgroup">
+                <label for="bSX">X: </label>
+                <input type="range" min="0" max="16" step="4" id="bSX">
+            </div>
+            <div class="formgroup">
+                <label for="bSY">Y: </label>
+                <input type="range" min="0" max="16" step="4" id="bSY">
+            </div>
+            <div class="formgroup">
+                <label for="bSSpread">Spread: </label>
+                <input type="range" min="0" max="24" step="4" id="bSSpread">
+            </div>
+            <div class="formgroup">
+                <label for="bSO">Alpha (Opacity): </label>
+                <input type="range" min="0" max="1" step="0.04" id="bSO">
+            </div>
+            <button onclick="setter()">SET VALUES</button>
+        </div>
+    </div>
+    <div class="print">
+        <div>
+            Border Radius: <span id="radiusPrint"></span>
+        </div>
+        <div>
+            X, Y, Spread, Opacity: <span id="xPrint"></span>, <span id="yPrint"></span>, <span id="spreadPrint"></span>, <span id="oPrint"></span>
+        </div>
+    </div>
+
+    <script>
+        class xyz {
+            constructor(r, x, y, s, o) {
+                this.r = r;
+                this.x = x;
+                this.y = y;
+                this.s = s;
+                this.o = o;
+            }
+        }
+        // INIT VARS
+        const val = new xyz(0, 0, 0, 0, 0);
+        document.getElementById('bRadius').value = val.r
+        document.getElementById('radiusPrint').innerText = val.r;
+
+        document.getElementById('xPrint').innerText = val.x;
+        document.getElementById('bSX').value = val.x;
+        
+        document.getElementById('yPrint').innerText = val.y;
+        document.getElementById('bSY').value = val.y;
+
+        document.getElementById('spreadPrint').innerText = val.s;
+        document.getElementById('bSSpread').value = val.s;
+
+        document.getElementById('oPrint').innerText = val.o;
+        document.getElementById('bSO').value = val.o;
+
+        function setter() {
+            val.r = document.getElementById('bRadius').value;
+            val.x = document.getElementById('bSX').value;
+            val.y = document.getElementById('bSY').value;
+            val.s = document.getElementById('bSSpread').value;
+            val.o = document.getElementById('bSO').value;
+
+            document.getElementById('container').style.borderRadius = val.r + "px";
+            var color = "0,0,0,"+val.o;
+            document.getElementById('container').style.boxShadow = val.x + 'px ' + val.y + 'px ' + val.s + 'px rgba(' + color + ')';
+            console.log(val.x + 'px ' + val.y + 'px 0 ' + val.s + 'px rgba(' + color + ')');
+
+            document.getElementById('radiusPrint').innerText = val.r +"px";
+            document.getElementById('xPrint').innerText = val.x;
+            document.getElementById('yPrint').innerText = val.y;
+            document.getElementById('spreadPrint').innerText = val.s;
+            document.getElementById('oPrint').innerText = val.o;
+        }
+        
+
+    </script>
+</body>
+</html>

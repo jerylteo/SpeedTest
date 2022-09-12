@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C17</title>
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+        }
+        body {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-rows: repeat(3,1fr);
+            gap: 5px;
+        }
+        .card {
+            display: inline-block;
+            width: 384px;
+            height: 360px;
+            background: url("./image.jpg");
+            background-repeat: no-repeat;
+            animation: animate 2s;
+        }
+        .card1 {
+            background-position: 0px 0px;
+        }
+
+        .card2 {
+            background-position: -384px 0px;
+        }
+
+        .card3 {
+            background-position: -768px 0px;
+        }
+
+        .card4 {
+            background-position: -1152px 0px;
+        }
+        
+        .card5 {
+            background-position: -1536px 0px;
+        }
+
+        .card6 {
+            background-position: 0px -360px;
+        }
+
+        .card7 {
+            background-position: -384px -360px;
+        }
+
+        .card8 {
+            background-position: -768px -360px;
+        }
+
+        .card9 {
+            background-position: -1152px -360px;
+        }
+        
+        .card10 {
+            background-position: -1536px -360px;
+        }
+
+        .card11 {
+            background-position: 0px -720px;
+        }
+
+        .card12 {
+            background-position: -384px -720px;
+        }
+
+        .card13 {
+            background-position: -768px -720px;
+        }
+
+        .card14 {
+            background-position: -1152px -720px;
+        }
+        
+        .card15 {
+            background-position: -1536px -720px;
+        } 
+
+        @keyframes animate {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card card1"></div>
+    <div class="card card2"></div>
+    <div class="card card3"></div>
+    <div class="card card4"></div>
+    <div class="card card5"></div>
+    <div class="card card6"></div>
+    <div class="card card7"></div>
+    <div class="card card8"></div>
+    <div class="card card9"></div>
+    <div class="card card10"></div>
+    <div class="card card11"></div>
+    <div class="card card12"></div>
+    <div class="card card13"></div>
+    <div class="card card14"></div>
+    <div class="card card15"></div>
+</body>
+</html>

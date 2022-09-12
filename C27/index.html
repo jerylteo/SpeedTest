@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C27</title>
+    <style>
+        body {
+            display: flex;
+        }
+
+        .square {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(to right, red, blue);
+        }
+        .randBtn {
+            width: 10px;
+            height: 10px;
+            border: none;
+            margin-right: 2px;
+        }
+
+        .randButtons {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="leftControls">
+        <div class="randButtons leftRandButtons">
+        </div>
+        <input type="text" id="leftHexVal">
+    </div>
+    <div class="square"></div>
+    <div class="rightControls">
+        <div class="randButtons rightRandButtons">
+            
+        </div>
+        <input type="text" id="rightHexVal">
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C18</title>
+    <!-- reference from https://css-tricks.com/almanac/properties/s/stroke-dasharray/
+        https://www.youtube.com/watch?v=wRqZSna9_Aw 
+     -->
+    <style>
+        svg {
+            width: 100vw;
+        }
+        #text {
+            font-size: 100px;
+            fill: white;
+            stroke-width: 1px;
+            stroke: black;
+            stroke-linejoin: round;
+            stroke-dasharray: 800;
+            stroke-dashoffset: 800;
+            animation: dash 2s linear forwards;
+        }
+
+        @keyframes dash {
+            75% {
+                stroke-dashoffset: 0;
+                fill: white;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                fill: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg>
+        <symbol id="text">
+            <text x="0%" y="50%">Hello world!</text>
+        </symbol>
+        <use xlink:href="#text"></use>
+    </svg>
+</body>
+</html>

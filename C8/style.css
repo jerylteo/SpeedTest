@@ -1,0 +1,51 @@
+.fakebox {
+    width: 500px;
+    height: 40px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.fakebox, .dropdown {
+    box-shadow: 2px 0.5px 6px rgb(177, 177, 177);
+    border: 0.5px solid  rgb(177, 177, 177);
+}
+.textbox {
+    height: 80%;
+    border: none;
+    flex-grow: 1;
+    /* temporary set gray color to see if the real tb is aligned correctly */
+    background-color: lightgray;    
+}
+
+.dropdown {
+    width: 495px;
+    background-color: rgba(223, 223, 223, 0.555);
+    padding-top: 5px;
+    padding-left: 5px;    
+    display:none;
+}
+
+.tagRow {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.tagRow:hover {
+    background-color: rgba(223, 223, 223);
+}
+
+.tag,.selectedTag {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.cross {
+    margin-left: 10px;
+    color: rgb(204, 204, 204);
+}

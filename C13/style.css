@@ -1,0 +1,18 @@
+body {
+    position: relative;
+}
+
+#draggable {
+    position: absolute;
+
+    width: 150px;
+    height: 36px;
+    line-height: 36px;
+
+    text-align: center;
+
+    border: 1px solid pink;
+    color: deeppink;
+
+    transition: all .001s linear;
+}

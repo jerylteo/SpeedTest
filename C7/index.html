@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <style>
+        #app {
+            height: 100vh;
+            width: 50vw;
+        }
+        .clock {
+            border-radius: 50%;
+        }
+        .d-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #clockBg {
+            width: 500px;
+            height: 500px;
+            background-color: rgb(50, 50, 50)
+        }
+        #clockBgInner {
+            width: 450px;
+            height: 450px;
+            background-color: rgb(75, 75, 75)
+        }
+        #clockBgInner2 {
+            width: 425px;
+            height: 425px;
+            background-color: rgb(80, 80, 80)
+        }
+        #clockFace {
+            width: 410px;
+            height: 410px;
+            background-color: white;
+            position: relative;
+        }
+        .tick {
+            width: 10px;
+            height: 20px;
+            background-color: black;
+            position: absolute;
+        }
+        .bTick {
+            width: 20px;
+            height: 50px;
+            background-color: black;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<section id="app" class="d-flex">
+    <article id="clockBg" class="clock d-flex">
+        <div id="clockBgInner" class="clock d-flex">
+            <div id="clockBgInner2" class="clock d-flex">
+                <div id="clockFace" class="clock">
+                    <div id="hands">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<script>
+    let clock = document.getElementById('clockFace');
+
+    // calculations
+    let width = 410, height = 410, bTickW = 20, bTickH = 50, tickW=10, tickH = 20;
+
+
+    let i = 0, t = 0, l = 0;
+    let count = 0;
+    while (i < 360) {
+        
+        if (i%30==0) {
+            if (count < 3) {
+                t = 66.67*count;
+                l = 200 + (53.34*count); 
+                clock.innerHTML += `<div class="bTick" style="top: ${t}px; left: ${l}px; transform: rotate(${i}deg)"></div>`;
+            }
+            else if (count >= 3 && count < 6) {
+                t = (200 + 53.34*(count-4)) + 33.34;
+                l = (360 - 53.34*(count-4)) - 53.34;
+                clock.innerHTML += `<div class="bTick" style="top: ${t}px; left: ${l}px; transform: rotate(${i}deg)"></div>`;
+            }
+            else if (count >= 6 && count < 9) {
+                t = (360 - 53.34*(count-7)) - 53.34;
+                l = (200 - 53.34*(count-7)) - 53.34;
+                clock.innerHTML += `<div class="bTick" style="top: ${t}px; left: ${l}px; transform: rotate(${i}deg)"></div>`;
+            }
+            else if (count >= 9 && count < 12) {
+                t = (200 - 53.34*(count-10)) - 75;
+                l = (50 + 53.34*(count-10)) + 25;
+                clock.innerHTML += `<div class="bTick" style="top: ${t}px; left: ${l}px; transform: rotate(${i}deg)"></div>`;
+            }
+            count++;
+        }
+        // else clock.innerHTML += `<div class="tick" style="top: ${i}px; left: ${i}px; transform: rotate(${i}deg)"></div>`;
+        i++;
+    }
+
+</script>
+
+</body>
+</html>

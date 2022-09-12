@@ -1,0 +1,163 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    background-color: #F2F2F2;
+    height: 100vh;
+}
+
+main section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    position: absolute;
+}
+
+.red {
+    background-color: #F63D3A;
+    animation: 2s ease-in-out infinite running redMove;
+}
+
+.green {
+    background-color: #19a68c;
+    left: 120px;
+    animation: 2s ease-in-out infinite running greenMove;
+}
+
+.yellow {
+    background-color: #FDA543;
+    top: 120px;
+    animation: 2s ease-in-out infinite running yellowMove;
+}
+
+.darkgreen {
+    background-color: #193B48;
+    top: 120px;
+    left: 120px;
+    animation: 2s ease-in-out infinite running darkGreenMove;
+}
+
+@keyframes redMove {
+    0% {
+        top: 0;
+        left: 0;
+    }
+
+    25% {
+        top: 0;
+        left: 120px;
+    }
+
+    50% {
+        top: 120px;
+        left: 120px;
+    }
+
+    75% {
+        top: 120px;
+        left: 0px;
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+    }
+}
+
+@keyframes greenMove {
+    0% {
+        top: 0;
+        left: 120px;
+    }
+
+    25% {
+        top: 120px;
+        left: 120px;
+    }
+
+    50% {
+        top: 120px;
+        left: 0px;
+    }
+
+    75% {
+        top: 0px;
+        left: 0px;
+    }
+
+    100% {
+        top: 0;
+        left: 120px;
+    }
+}
+
+@keyframes yellowMove {
+    0% {
+        top: 120px;
+        left: 0;
+    }
+
+    25% {
+        top: 0;
+        left: 0;
+    }
+
+    50% {
+        top: 0px;
+        left: 120px;
+    }
+
+    75% {
+        top: 120px;
+        left: 120px;
+    }
+
+    100% {
+        top: 120px;
+        left: 0;
+    }
+}
+
+@keyframes darkGreenMove {
+    0% {
+        top: 120px;
+        left: 120px;
+    }
+
+    25% {
+        top: 120px;
+        left: 0px;
+    }
+
+    50% {
+        top: 0px;
+        left: 0px;
+    }
+
+    75% {
+        top: 0px;
+        left: 120px;
+    }
+
+    100% {
+        top: 120px;
+        left: 120px;
+    }
+
+}

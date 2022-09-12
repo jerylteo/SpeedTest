@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C14</title>
+    <style>
+        .key {
+            width: 60px;
+            height: 40px;
+            background-color: black;
+            color: white;
+            margin: 3px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .keyrow {
+            display: flex;
+            width: 800px;
+        }
+        .keyrow5 .key{
+            flex:1;
+        }
+    </style>
+</head>
+<body>
+    <div class="keyboard">
+        <div class="keyrow keyrow1"></div>
+        <div class="keyrow keyrow2"></div>
+        <div class="keyrow keyrow3"></div>
+        <div class="keyrow keyrow4"></div>
+        <div class="keyrow keyrow5"></div>
+    </div>
+    <div>
+        <textarea cols="30" rows="10"></textarea>
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

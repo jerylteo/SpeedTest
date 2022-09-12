@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Temp E1 file</title>
+
+    <script src="https://kit.fontawesome.com/52cdcd57d4.js" crossorigin="anonymous"></script>
+
+    <style>
+        footer {
+            background-color: #F2F2F2;
+            width: 100%;
+        }
+
+        .icons-wrapper {
+            margin: 0 auto;
+            padding: 15px 0;
+            max-width: 400px;
+            display: flex;
+            justify-content: space-around;
+
+            font-size: 1.6em;
+        }
+
+        .fa-facebook-f {
+            color: #3d5998;
+        }
+
+        .fa-pinterest {
+            color: #e50122;
+        }
+
+        .fa-twitter {
+            color: #54acec;
+        }
+
+        .fa-tumblr {
+            color: #314258;
+        }
+
+        .footer-icon {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px #00000026;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .footer-icon::before {
+            content: "";
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            position: absolute;
+            top: 120px;
+            right: 120px;
+            z-index: 3;
+            rotate: 45deg;
+            transition: all .5s .5s linear;
+        }
+
+        .footer-icon::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: white;
+            display: inline-block;
+            transition: scale .4s .1s ease-out;
+            scale: 5;
+            z-index: 4;
+        }
+
+        .footer-icon.facebook::before {
+            background-color: #3d5998;
+        }
+
+        .footer-icon.pinterest::before {
+            background-color: #e50122;
+        }
+
+        .footer-icon.twitter::before {
+            background-color: #54acec;
+        }
+
+        .footer-icon.tumblr::before {
+            background-color: #314258;
+        }
+
+        .footer-icon .fab {
+            transition: scale .4s ease-out, color .2s .35s ease-out;
+            z-index: 5;
+        }
+
+        .footer-icon:hover>.fab {
+            scale: 1.3;
+            color: white;
+        }
+
+        .footer-icon:hover:before {
+            top: -50px;
+            right: -50px;
+            transition: all .5s .15s linear;
+        }
+
+        .footer-icon:hover:after {
+            transition: scale .4s ease-out, opacity .3s ease-out;
+            scale: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Fake content</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo temporibus iste, maiores nostrum magni
+            eveniet similique et, iure laudantium neque natus, non quaerat vel consectetur eaque iusto atque unde error.
+            Itaque, quos. Itaque alias sequi molestiae eum voluptate quaerat id, dicta, veniam libero vitae, minus
+            cupiditate maiores? Quia, pariatur vel nesciunt nisi et est earum consectetur aperiam consequatur aliquid
+            tempora.
+            Animi adipisci ad ullam laborum! Eligendi quam delectus commodi maiores earum distinctio facilis similique
+            porro? Quisquam quae dolor ducimus ullam? Laborum eveniet asperiores est eaque! Officia molestias labore
+            vero nobis.</p>
+    </main>
+
+    <footer>
+        <div class="icons-wrapper">
+            <div class="footer-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="footer-icon pinterest">
+                <i class="fab fa-pinterest"></i>
+            </div>
+            <div class="footer-icon twitter">
+                <i class="fab fa-twitter"></i>
+            </div>
+            <div class="footer-icon tumblr">
+                <i class="fab fa-tumblr"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

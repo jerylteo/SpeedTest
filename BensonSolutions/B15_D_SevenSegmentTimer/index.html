@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .digit {
+            width: 70px;
+            height: 150px;
+            border: 1px blue solid;
+
+        }
+
+        .sbar {
+            border-radius: 10px;
+            -moz-border-radius : 10px;
+            background-color: red;
+
+        }
+
+        /* .red {
+            background-color: red;
+        } */
+        
+        .s1,.s4,.s7 {
+            width: 80%;
+            height: 10px;
+            clear:both;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .s2,.s3,.s5,.s6 {
+            width: 10px;
+            height: 50px;
+        }
+
+        .s2, .s5 {
+            float: left;
+        }
+
+        .s3, .s6 {
+            float: right;
+        }
+
+        main {
+            width: 400px;
+            display:flex;
+            justify-content: space-around;
+        }
+    
+    </style>
+</head>
+<body>
+<main>
+    <div class="digit digit3">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+
+    <div class="digit digit2">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+    <div class="digit digit1">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+
+    <div class="digit digitt">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+
+    <div class="digit digith">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+</main>   
+<button type="button" id="start">Start</button>
+<button type="button" id="stop">Stop</button>
+<button type="button" id="reset">Reset</button>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>
+$(function(){
+    $("#start").on("click", function(){
+        c=290;
+        haha(); 
+    });
+
+
+    $("#reset").on("click", function(){
+        clearTimeout(t1);
+    }); 
+
+});
+
+
+var c = 0;
+var t1;
+var c1,C10,c100;
+var num = [
+        "123567",
+        "36",
+        "13457",
+        "13467",
+        "2346",
+        "12467",
+        "124567",
+        "136",
+        "1234567",
+        "123467"
+]; 
+
+function haha() {
+    c++;
+    c1 = c%10;
+    c10 = Math.floor(c%100 / 10 );
+    c100 = Math.floor(c%1000 / 100 );
+    changeDisplay(1,c1);
+    changeDisplay(2,c10);
+    changeDisplay(3,c100);
+    t1 = setTimeout(haha,1000);
+}
+
+
+function changeDisplay(d,n) {
+    for(i=1; i<=7 ; i++ ) {
+        var myId = ".digit" +d+  " .s"+i;
+
+        if (num[n].search(i) != -1) {
+            $(myId).css('background-color', 'red');
+        }
+        else {
+            $(myId).css('background-color', '#eeeeee');
+        }
+    }
+}
+
+
+
+
+</script> 
+</body>
+</html>

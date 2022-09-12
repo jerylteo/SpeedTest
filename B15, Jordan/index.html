@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B15&colon; Seven segment digital Timer</title>
+    <style>
+        main {
+            margin-top: 50px;
+            display: flex;
+            width: 42vw;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            width: 4 0%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .digit {
+            width: 95px;
+        }
+
+        .bar1,
+        .bar4,
+        .bar7 {
+            margin-left: 10px;
+        }
+
+        .bar {
+            width: 75px;
+            height: 10px;
+            border-radius: 999px;
+            background-color: rgb(208, 40, 40);
+            opacity: 0.1;
+        }
+
+        .bar2,
+        .bar3,
+        .bar5,
+        .bar6 {
+            height: 80px;
+            width: 10px;
+            float: left;
+        }
+
+        .bar3,
+        .bar6 {
+            /* margin-left: 60px; */
+            float: right;
+            margin-left: 20px;
+        }
+
+        .bar4,
+        .bar7 {
+            clear: both;
+        }
+
+        .selected {
+            opacity: 1;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: rgb(208, 40, 40);
+        }
+
+        .buttons {
+            min-width: 25vw;
+        }
+
+        button {
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 3px;
+            color: white;
+        }
+
+
+        #start {
+            background-color: rgb(67, 67, 245);
+        }
+
+        #stop {
+            background-color: rgb(233, 61, 61);
+        }
+
+        #reset {
+            background-color: rgb(224, 156, 28);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="digit d1">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+        </div>
+
+        <div class="digit d2">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+        </div>
+
+        <div class="digit d3">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+        </div>
+
+        <h1>:</h1>
+
+        <div class="digit dt">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+        </div>
+
+        <div class="digit dh">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+        </div>
+    </main>
+    <div class="buttons">
+        <button type="button" id="start">Start Timer</button>
+        <button type="button" id="stop">Stop Timer</button>
+        <button type="button" id="reset">Reset Timer</button>
+    </div>
+
+
+
+    <script>
+        let start = document.getElementById("start");
+        let stop = document.getElementById("stop");
+        let reset = document.getElementById("reset");
+        start.addEventListener("click", function () {
+            startTime = new Date();
+            getTime();
+        });
+
+        stop.addEventListener("click", function () {
+            //STOP THE SETTIMEOUT
+            clearTimeout(t1);
+        });
+
+        reset.addEventListener("click", function () {
+            clearTimeout(t1);
+            //RESET TIMEDIFF
+            timeDiff = 0;
+            changeDisplay(3, 0);
+            changeDisplay(2, 0);
+            changeDisplay(1, 0);
+            changeDisplay("t", 0);
+            changeDisplay("h", 0);
+        })
+
+        var t1;
+        var startTime;
+        var now;
+        var timeDiff = 0;
+        var num = [
+            "123567", //0
+            "36", //1
+            "13457", //2
+            "13467", //3
+            "2346", //4
+            "12467", //5
+            "124567", //6
+            "136", //7
+            "1234567", //8
+            "123467" //9
+        ];
+
+        function getTime() {
+            now = new Date(); //Get current date?
+            timeDiff += (now - startTime);
+            startTime = now;
+            console.log(timeDiff);
+
+            //timeDiff increases every 10 millisecond
+            t1 = setTimeout(getTime, 10);
+
+
+            cd10 = Math.floor(timeDiff % 1000 / 100);
+            cd100 = Math.floor(timeDiff % 100 / 10);
+            //Get Seconds
+            c1 = Math.floor(timeDiff % 10000 / 1000);
+            c10 = Math.floor(timeDiff % 100000 / 10000);
+            c100 = Math.floor(timeDiff % 1000000 / 100000);
+
+            display(3, c1);
+            display(2, c10);
+            display(1, c100);
+            display("t", cd10);
+            display("h", cd100);
+        }
+
+        function display(d, n) {
+            for (i = 1; i <= 7; i++) {
+                var digit = document.querySelector('.d' + d);
+                var digit = digit.querySelector('.bar' +
+                    i); //Loop through the id of the digit bars //Loop through the id of the digit bars
+                console.log(digit);
+                if (num[n].search(i) != -1) {
+                    digit.style.opacity = "0.8";
+                } else {
+                    digit.style.opacity = "0.1";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

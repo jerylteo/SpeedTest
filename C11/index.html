@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C11</title>
+    <style>
+        canvas {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <canvas height="320" width="400" id="mycanvas">
+
+    </canvas>
+</body>
+<script>
+    let canvas = document.getElementById('mycanvas');
+    let ctx = canvas.getContext('2d');
+
+    let speed = 5;
+    let state = false;
+
+    let ball = {
+        x: 10,
+        y: 155,
+        r: 10
+    }
+
+    init();
+
+    function init() {
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.r, 0, 2*Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        setInterval(move, speed);
+    }
+
+    function move() {
+        ctx.clearRect(0,0,400,320);
+
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.r, 0, 2*Math.PI);
+        ctx.fill();
+
+        if (ball.x > 390) {
+            ball.x = 390;
+            state = true;
+        } else if (ball.x < 10){
+            ball.x = 10;
+            state = false;
+        }
+
+        if (state) ball.x--;
+        else ball.x++;
+    }
+
+</script>
+</html>

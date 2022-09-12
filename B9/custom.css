@@ -1,0 +1,39 @@
+.userCon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 2rem;
+}
+.subjectCon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.subjectCon input[type='radio'] {
+    display: none;
+}
+.subjectCon .form__fieldwrap--radio {
+    margin-bottom: 1rem;
+}
+.subjectCon label {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: lightgrey;
+    cursor: pointer;
+}
+.subjectCon input[type='radio']:checked ~ label {
+    background-color: black;
+    color: white;
+}
+
+/* .subjectCon input[type='radio']:checked#field_general {
+    display: block;
+}
+.subjectCon input[type='radio']:checked#field_support_request {
+    display: block;
+} */
+
+.button.button--submit {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        main {
+            width: 500px;
+        }
+
+        .digit {
+            width: 70px;
+            height: 150px;
+        }
+
+        .sbar {
+            border-radius: 10px;
+            -moz-border-radius : 10px;
+            background-color: red;
+        }
+
+        .s4 {
+            background-color: #EEEEEE;
+        }
+
+       
+        .s1,.s4,.s7 {
+            width: 80%;
+            height: 10px;
+            clear:both;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .s2,.s3,.s5,.s6 {
+            width: 10px;
+            height: 50px;
+        }
+
+        .s2, .s5 {
+            float: left;
+        }
+
+        .s3, .s6 {
+            float: right;
+        }
+
+        
+
+        section {
+            display:flex;
+            justify-content: space-around;
+        }
+
+        .colon {
+            font-size: 6em;
+        }
+
+        .digit, .colon {
+            margin-left: 4%;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+<main>
+    <section>
+    <div class="digit digit3">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+
+    <div class="digit digit2">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+    <div class="digit digit1">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+    <div class="colon">
+        :
+    </div>
+    <div class="digit digitt">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+
+    <div class="digit digith">
+        <div class="s1 sbar"></div>
+        <div class="s2 sbar"></div>
+        <div class="s3 sbar"></div>
+        <div class="s4 sbar"></div>
+        <div class="s5 sbar"></div>
+        <div class="s6 sbar"></div>
+        <div class="s7 sbar"></div>
+    </div>
+    </section>
+    <div class="buttons">
+        <button type="button" id="start">Start</button>
+        <button type="button" id="stop">Stop</button>
+        <button type="button" id="reset">Reset</button>
+    </div>
+
+</main>   
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>
+$(function(){
+    $("#start").on("click", function(){
+        startTime = new Date();
+        haha(); 
+    });
+
+
+    $("#stop").on("click", function(){
+        clearTimeout(t1);
+    }); 
+
+
+    $("#reset").on("click", function(){
+        clearTimeout(t1);
+        timeDiff = 0;
+        changeDisplay(1,0);
+        changeDisplay(2,0);
+        changeDisplay(3,0);
+        changeDisplay("t",0);
+        changeDisplay("h",0);
+    }); 
+
+});
+
+var startTime;
+var now;
+var timeDiff = 0;
+var c = 0;
+var t1;
+var c1,C10,c100;
+var num = [
+        "123567",
+        "36",
+        "13457",
+        "13467",
+        "2346",
+        "12467",
+        "124567",
+        "136",
+        "1234567",
+        "123467"
+]; 
+
+function haha() {
+    now = new Date();
+    timeDiff += (now - startTime);
+    startTime = now;
+    console.log(timeDiff);
+
+    //*** Centisec part
+    cd10 = Math.floor(timeDiff % 1000 / 100 );
+    cd100 = Math.floor(timeDiff % 100 / 10 );
+    // ** Sec part
+    //c = Math.round(timeDiff/1000,0); /// SEC
+    c1 = Math.floor(timeDiff % 10000 / 1000 );
+    c10 = Math.floor(timeDiff % 100000 / 10000 );
+    c100 = Math.floor(timeDiff % 1000000 / 100000 );
+
+    changeDisplay(1,c1);
+    changeDisplay(2,c10);
+    changeDisplay(3,c100);
+    changeDisplay("t",cd10);
+    changeDisplay("h",cd100);
+
+    t1 = setTimeout(haha,10);
+}
+
+
+function changeDisplay(d,n) {
+    for(i=1; i<=7 ; i++ ) {
+        var myId = ".digit" +d+  " .s"+i;
+
+        if (num[n].search(i) != -1) {
+            $(myId).css('background-color', 'red');
+        }
+        else {
+            $(myId).css('background-color', '#eeeeee');
+        }
+    }
+}
+
+
+
+
+</script> 
+</body>
+</html>

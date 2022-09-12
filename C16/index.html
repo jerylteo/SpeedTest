@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C16</title>
+    <style>
+      :root {
+        --lg: lightgreen;
+        --dg: darkgreen;
+        --ly: lightyellow;
+        --dy: rgb(165, 147, 42);
+        --lr: pink;
+        --dr: darkred;
+      }
+      body,
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      main {
+        flex-direction: column;
+      }
+      #face {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        border: 20px solid var(--dg);
+        background-color: var(--lg);
+      }
+
+      .eyes {
+        width: 75%;
+        height: 20%;
+        display: flex;
+        justify-content: space-around;
+        margin: 30% auto 0;
+      }
+
+      .eye {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--dg);
+      }
+
+      #mouth {
+        width: 275px;
+        height: 10%;
+        margin: 4rem auto 0;
+        border-radius: 50% / 100%;
+        transition: all 0.5s;
+      }
+
+      .smile #mouth {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+      .sad #mouth {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .meh #mouth {
+        border-radius: 999px;
+      }
+
+      .meh#face {
+        background-color: var(--ly);
+        border-color: var(--dy);
+      }
+      .meh #mouth,
+      .meh .eye {
+        background-color: var(--dy);
+      }
+      .sad#face {
+        background-color: var(--lr);
+        border-color: var(--dr);
+      }
+      .sad #mouth,
+      .sad .eye {
+        background-color: var(--dr);
+      }
+      .smile#face {
+        background-color: var(--lg);
+        border-color: var(--dg);
+      }
+      .smile #mouth,
+      .smile .eye {
+        background-color: var(--dg);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="face" class="meh">
+        <div class="eyes">
+          <div class="eye"></div>
+          <div class="eye"></div>
+        </div>
+        <div id="mouth"></div>
+      </div>
+      <br><br>
+      <div>
+        <button id="smile">:)</button>
+        <button id="meh">:|</button>
+        <button id="sad">:(</button>
+      </div>
+    </main>
+    <script>
+      window.onload = () => {
+        let smile = document.getElementById("smile");
+        let meh = document.getElementById("meh");
+        let sad = document.getElementById("sad");
+        let mouth = document.getElementById("mouth");
+        let face = document.getElementById("face");
+
+        function change(e) {
+          face.className = "";
+          face.classList.add(e.target.id);
+        }
+        smile.addEventListener("click", change);
+        meh.addEventListener("click", change);
+        sad.addEventListener("click", change);
+      };
+    </script>
+  </body>
+</html>

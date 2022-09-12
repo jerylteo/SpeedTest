@@ -1,0 +1,66 @@
+.userCon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 2rem;
+}
+.subjectCon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.subjectCon input[type='radio'] {
+    display: none;
+}
+.subjectCon .form__fieldwrap--radio {
+    margin-bottom: 1rem;
+}
+.subjectCon label {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: lightgrey;
+    cursor: pointer;
+}
+.subjectCon input[type='radio']:checked + label {
+    background-color: black;
+    color: white;
+}
+
+.general_fieldset, .support_fieldset {
+    position: absolute;
+    width: 90%;
+    left: 100px;
+    display: none;
+    height: 200px;
+}
+
+#field_general:checked ~ .general_fieldset {
+    display: block;
+}
+
+#field_general:checked ~ .support_fieldset {
+    display: none;
+}
+
+#field_support_request:checked ~ .general_fieldset {
+    display: none;
+}
+
+#field_support_request:checked ~ .support_fieldset {
+    display: block;
+}
+/* .subjectCon input[type='radio']:checked#field_general {
+    display: block;
+}
+.subjectCon input[type='radio']:checked#field_support_request {
+    display: block;
+} */
+
+.message_fieldset {
+    margin-top: 300px;
+}
+
+.button.button--submit {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+}
